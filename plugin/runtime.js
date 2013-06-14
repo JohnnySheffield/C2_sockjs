@@ -120,56 +120,39 @@ cr.plugins_.sockjs = function(runtime)
 		var self = this;
 			
 		//this.sjs = new SockJS(url_, requireProtocol_ === "" ? undefined : requireProtocol_);
-		
-		/*
-		{
-         {
-    client_opts: {
-        // Address of a sockjs test server.
-        url: 'http://localhost:8081',
-        sockjs_opts: {
-            devel: true,
-            debug: true,
-            // websocket:false
-            info: {cookie_needed:false}
-        }
-    },
-
-    port: 8080,
-    host: '0.0.0.0'
-};
-	
-	
-	
-	
-	
-	
-	*/
-		
-		
-		
-		var protocols = ['xdr-streaming', 'xhr-streaming', 'xdr-polling', 'xhr-polling', 'iframe-eventsource'];
-var opts = {protocols_whitelist: protocols, debug: true, jsessionid: false};
 
 		
+		//var protocols = ['Websocket','xdr-streaming', 'xhr-streaming', 'xdr-polling', 'xhr-polling', 'iframe-eventsource'];
+		var protocols = null;
 		
-		
+        var opts = {protocols_whitelist: protocols 
+					,	debug: true 
+					,	jsessionid: false};
+
 		this.sjs = new SockJS(url_,null, opts);
 		
 		this.sjs.binaryType = "arraybuffer";
 		this.sjs.onopen = function() {
+			
+			self.protocol = self.sjs.protocol;
+			self.runtime.trigger(cr.plugins_.sockjs.prototype.cnds.OnOpened, self);
+			
 			// Check required protocol is supported if any
+			/////
+			/////TO DO: check this
+			/*
 			if (requireProtocol_.length && self.sjs.protocol.indexOf(requireProtocol_) === -1)
 			{
 				self.errorMsg = "WebSocket required protocol '" + requireProtocol_ + "' not supported by server";
 				self.runtime.trigger(cr.plugins_.sockjs.prototype.cnds.OnError, self);
 			}
 			else {
+			
 			    self.protocol = self.sjs.protocol;
 				self.runtime.trigger(cr.plugins_.sockjs.prototype.cnds.OnOpened, self);
 				//console.log("[protocol] " + self.sjs.protocol);
 				};
-				
+			*/	
 		};
 		this.sjs.onerror = function (err_) {
 			self.errorMsg = err_ || "";

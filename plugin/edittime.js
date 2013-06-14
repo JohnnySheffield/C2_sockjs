@@ -66,7 +66,7 @@ AddCondition(4, cf_none, "Is open", "Connection", "Is connection open", "True if
 
 AddCondition(5, cf_none, "Is connecting", "Connection", "Is connecting", "True if the connection is currently being established.", "IsConnecting");
 
-AddCondition(6, cf_none, "Is supported", "Connection", "Is sockjs supported", "True if the user's client supports sockjs connections.", "IsSupported");
+AddCondition(6, cf_none, "Is supported", "Connection", "Is Websocket supported", "True if the user's client supports websocket connections.", "IsSupported");
 
 ////////////////////////////////////////
 // Actions
