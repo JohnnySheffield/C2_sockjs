@@ -101,6 +101,7 @@ AddAction(2, af_none, "Send text", "Data", "Send text <i>{0}</i>", "Send a text 
 
 AddExpression(0, ef_return_string, "", "Data", "MessageText", "The text content of the message in 'On message'.");
 AddExpression(1, ef_return_string, "", "Connection", "ErrorMsg", "The error message in 'On error'.");
+AddExpression(2, ef_return_string, "", "Protocol", "Protocol", "Current protocol.");
 
 ////////////////////////////////////////
 ACESDone();
