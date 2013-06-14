@@ -4,8 +4,8 @@ Sockjs-client plugin for Construct 2
 Exposing sockjs-client to C2 users
 
 
-SockJS-client
-=============
+*SockJS-client
+
 
 SockJS is a browser JavaScript library that provides a WebSocket-like
 object. SockJS gives you a coherent, cross-browser, Javascript API
