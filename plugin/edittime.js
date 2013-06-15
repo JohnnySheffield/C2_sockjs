@@ -79,8 +79,8 @@ AddCondition(6, cf_none, "Is supported", "Connection", "Is Websocket supported",
 //			 description,		// appears in event wizard dialog when selected
 //			 script_name);		// corresponding runtime function name
 
-AddStringParam("URL", "Enter the sockjs server to connect to.", "\"ws://\"");
-AddStringParam("Protocol (optional)", "Enter a required sub-protocol the server must support in order to establish a connection.  Leave empty for no protocol requirement.");
+AddStringParam("URL", "Enter the sockjs or websocket (ws://) server to connect to.", "\"http://\"");
+AddStringParam("Protocol list", "Enter a fallback protocol list separated by comma that may be used by SockJS.","\"Websocket,xdr-streaming,xhr-streaming,xdr-polling, xhr-polling, iframe-eventsource\"");
 AddAction(0, af_none, "Connect", "Connection", "Connect to <i>{0}</i> (require protocol {1})", "Connect to a sockjs server.", "Connect");
 
 AddAction(1, af_none, "Close", "Connection", "Close connection", "Close any active sockjs connection.", "Close");

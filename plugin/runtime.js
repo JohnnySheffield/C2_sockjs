@@ -1,4 +1,4 @@
-﻿document.write('<script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>');
+﻿document.write('<script src="https://d1fxtkz8shb9d2.cloudfront.net/sockjs-0.3.js"></script>');
 // ECMAScript 5 strict mode
 "use strict";
 
@@ -123,7 +123,9 @@ cr.plugins_.sockjs = function(runtime)
 
 		
 		//var protocols = ['Websocket','xdr-streaming', 'xhr-streaming', 'xdr-polling', 'xhr-polling', 'iframe-eventsource'];
-		var protocols = null;
+		var protocols = requireProtocol_.replace(/\s/g, "")
+		protocols = protocols.split(",");
+		console.log(protocols);
 		
         var opts = {protocols_whitelist: protocols 
 					,	debug: true 
